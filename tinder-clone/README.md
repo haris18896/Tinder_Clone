@@ -97,6 +97,11 @@ export default Header
     object-fit: contain;
     height: 40px;
 }
+
+.header__icon{
+    padding: 20px;
+    
+}
 ```
 
 

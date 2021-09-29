@@ -11,7 +11,7 @@ function Header() {
     return (
         <div className="header">
             <IconButton>
-                <PersonIcon fontSize="large" className="header__logo" />
+                <PersonIcon fontSize="large" className="header__icon" />
             </IconButton>
 
             <img
@@ -21,7 +21,7 @@ function Header() {
             />
 
             <IconButton>
-                <ForumIcon fontSize="large" className="header__logo" />
+                <ForumIcon fontSize="large" className="header__icon" />
             </IconButton>
 
         </div>
