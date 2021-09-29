@@ -222,11 +222,18 @@ app.use(express.json());
 app.use(Cors());
 
 // DB config
-mongoose.connect(connection_url, {
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useUnifiedTopology: true
-})
+            // the options in the database has been removed from mongoose 6.0.0 soo use the below code
+// mongoose.connect(connection_url, {
+//     useNewUrlParser: true,
+//     useCreateIndex: true,
+//     useUnifiedTopology: true
+// })
+// DB config
+mongoose.connect(connection_url,
+    async(err)=>{
+        if(err) throw err;
+        console.log("conncted to db")
+});
 // API Endpoints
 app.get('/', (req, res) => res.status(200).send('Hello thereeeeee'));
 

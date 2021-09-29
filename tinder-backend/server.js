@@ -13,11 +13,12 @@ app.use(express.json());
 app.use(Cors());
 
 // DB config
-mongoose.connect(connection_url, {
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useUnifiedTopology: true
-})
+mongoose.connect(connection_url,
+    async(err)=>{
+        if(err) throw err;
+        console.log("conncted to db")
+});
+
 // API Endpoints
 app.get('/', (req, res) => res.status(200).send('Hello thereeeeee'));
 
