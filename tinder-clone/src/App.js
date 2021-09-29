@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './components/header/Header';
-import TinderCards from './components/tinderCard/TinderCards'
+import TinderCards from './components/tinderCard/TinderCards';
+import SwipeButtons from './components/swipeButtons/SwipeButtons'
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       {/* TinderCards */}
       <TinderCards />
       {/* SwipeButtons */}
+      <SwipeButtons />
     </div>
   );
 }
