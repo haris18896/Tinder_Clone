@@ -196,13 +196,30 @@ in the postman we can check `http://localhost:8001/` as a GET request, and `http
 
 in the `POST` request, go to the `body` in the postman and in the body go to the `raw` and change the data type to `JSON` form `Text` and paste the data that we want to save in the database.
 
+copy and paste the JOSN data from `TinderCards.js` file in the frontend
+```js
+// /src/compoonents/TinderCards.js
+        {
+            name: 'Elon Musk',
+            url: 'https://www.biography.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTc5OTk2ODUyMTMxNzM0ODcy/gettyimages-1229892983-square.jpg'
+        },
+        {
+            name: 'Jeff Bezos',
+            url: "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iHgGhTf7zPzQ/v0/1000x-1.jpg"
+        },
+```
+copy this code and paste it in the postman as a `POST request`.
+
     Steps:
     1. add post endpoint in the `server.js` file, and save the request body in the dbCard variable.
     2. import database structure `import Cards form './dbCards.js`
     3. create a function in the post endpoint that will creates a new document. that function will have a call back function with `error`, and `data` parameters to handle the error and the data `app.post(//....)`
     4. create another function to find the data from the database. `app.get(//......)`.
-    5. now we can open Postman and Check all these stuff.
-    6. add middleware to the `server.js` file.
+    5. add middleware to the `server.js` file.
+    6. now we can open Postman and Check all these stuff.
+    7. to add the data in the JSON format go to the postman -> body -> raw, and change the type to JSON from Text.
+    8. copy and paste the json data of name and URL from the `TinderCards.js` file in the frontend.
+    
 
 
 ```js
@@ -264,5 +281,20 @@ app.listen(port, () => console.log(`Listening on localhost ${port}`))
 
 ```
 
+```json
+// in postman
+[
+    {
+        "name": "Elon Musk",
+        "imgUrl": "https://www.biography.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTc5OTk2ODUyMTMxNzM0ODcy/gettyimages-1229892983-square.jpg"
+    },
+    {
+        "name": "Jeff Bezos",
+        "imgUrl": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iHgGhTf7zPzQ/v0/1000x-1.jpg"
+    }
+]
 
+```
+
+and then  change the method to `GET` to check if the data is in the database.
 ## ``
