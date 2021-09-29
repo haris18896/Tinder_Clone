@@ -1,6 +1,9 @@
  # Tinder_Clone
 
 ## `Connecting our database to MongoDb`
+install cors for cross browser compatibility
+`npm i cors`
+
 click on the `databases` and then create a `cluster`, and then click on the `connect` button in the ` cluster` tab. and then click on `connect your application`
 
 go to the `https://cloud.mongodb.com/`, in the mongoDB console, go to the `Database Access` tab in the left, and create a new `database user`. fill in the name and auto generate the password. but make sure to copy the password somewhere safe. and then click `add user`.
@@ -181,7 +184,17 @@ app.get('/tinder/cards', (req, res) => {
 });
 ```
 
+```js
+// /tinder-clone/server.js
+//............
+// middleware
+app.use(express.json());
+```
+
 now we can open Postman to check our endpoints.
+in the postman we can check `http://localhost:8001/` as a GET request, and `http://localhost:8001/tinder/cards` as a POST request.
+
+in the `POST` request, go to the `body` in the postman and in the body go to the `raw` and change the data type to `JSON` form `Text` and paste the data that we want to save in the database.
 
     Steps:
     1. add post endpoint in the `server.js` file, and save the request body in the dbCard variable.
@@ -189,13 +202,15 @@ now we can open Postman to check our endpoints.
     3. create a function in the post endpoint that will creates a new document. that function will have a call back function with `error`, and `data` parameters to handle the error and the data `app.post(//....)`
     4. create another function to find the data from the database. `app.get(//......)`.
     5. now we can open Postman and Check all these stuff.
+    6. add middleware to the `server.js` file.
 
 
 ```js
 // /tinder-clone/server.js
 import express from 'express';
 import mongoose from 'mongoose';
-import Cards from './dbCards.js'
+import Cards from './dbCards.js';
+import Cors from 'cors'
 
 // App Config
 const app = express();
@@ -203,6 +218,8 @@ const port = process.env.PORT || 8001;
 
 const connection_url = `mongodb+srv://admin:NZgqRv2tq0UXZXxn@cluster0.gqlhg.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`
 // middleware
+app.use(express.json());
+app.use(Cors());
 
 // DB config
 mongoose.connect(connection_url, {
@@ -237,4 +254,8 @@ app.get('/tinder/cards', (req, res) => {
 });
 // Listener
 app.listen(port, () => console.log(`Listening on localhost ${port}`))
+
 ```
+
+
+## ``
