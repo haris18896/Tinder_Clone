@@ -6,7 +6,6 @@ import ForumIcon from '@mui/icons-material/Forum';
 import IconButton from '@mui/material/IconButton';
 
 
-
 function Header() {
     return (
         <div className="header">
